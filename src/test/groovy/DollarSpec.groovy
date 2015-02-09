@@ -22,4 +22,13 @@ class DollarSpec extends Specification {
         and:
         ! new Dollar(5).equals(new Dollar(6))
     }
+
+    def "test Franc multiplication"(){
+        given:
+        Franc five = new Franc(5)
+
+        expect:
+        five.times(2) == new Franc(10)
+        five.times(3) == new Franc(15)
+    }
 }
