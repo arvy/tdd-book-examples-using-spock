@@ -20,4 +20,12 @@ class DollarSpec extends Specification {
         2 || 10
         3 || 15
     }
+
+    def "test equality"(){
+        expect:
+        new Dollar(5).equals(new Dollar(5))
+
+        and:
+        ! new Dollar(5).equals(new Dollar(6))
+    }
 }
