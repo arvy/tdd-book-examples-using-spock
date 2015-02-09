@@ -1,9 +1,7 @@
 /**
  * Created by ajonusonis on 2/8/15.
  */
-public class Dollar {
-
-    private int amount;
+public class Dollar extends Money{
 
     Dollar(int amount){
         this.amount = amount;
@@ -13,9 +11,5 @@ public class Dollar {
         return new Dollar(amount * multiplier);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        Dollar dollar = (Dollar)o;
-        return amount == dollar.amount;
-    }
+
 }

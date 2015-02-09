@@ -18,9 +18,9 @@ class DollarSpec extends Specification {
     def "test equality"(){
         expect:
         new Dollar(5).equals(new Dollar(5))
-
-        and:
         ! new Dollar(5).equals(new Dollar(6))
+        new Franc(5).equals(new Franc(5))
+        ! new Franc(5).equals(new Franc(6))
     }
 
     def "test Franc multiplication"(){
