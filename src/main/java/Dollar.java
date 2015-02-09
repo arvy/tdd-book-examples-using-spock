@@ -3,7 +3,7 @@
  */
 public class Dollar {
 
-    int amount;
+    private int amount;
 
     Dollar(int amount){
         this.amount = amount;

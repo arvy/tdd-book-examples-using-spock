@@ -9,16 +9,10 @@ class DollarSpec extends Specification {
         given:
         Dollar five = new Dollar(5)
 
-        when:
-        Dollar product = five.times(x)
+        expect:
+        five.times(2) == new Dollar(10)
+        five.times(3) == new Dollar(15)
 
-        then:
-        product.amount == y
-
-        where:
-        x || y
-        2 || 10
-        3 || 15
     }
 
     def "test equality"(){
