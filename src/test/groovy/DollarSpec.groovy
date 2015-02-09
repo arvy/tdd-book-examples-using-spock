@@ -10,9 +10,14 @@ class DollarSpec extends Specification {
         Dollar five = new Dollar(5)
 
         when:
-        five.times(2)
+        Dollar product = five.times(x)
 
         then:
-        five.amount == 10
+        product.amount == y
+
+        where:
+        x || y
+        2 || 10
+        3 || 15
     }
 }
