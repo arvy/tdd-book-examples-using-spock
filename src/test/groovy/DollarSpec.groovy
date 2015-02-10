@@ -7,31 +7,31 @@ class DollarSpec extends Specification {
     def "test multiplication"(){
 
         given:
-        Dollar five = new Dollar(5)
+        Money five = Money.dollar(5)
 
         expect:
-        five.times(2) == new Dollar(10)
-        five.times(3) == new Dollar(15)
+        five.times(2) == Money.dollar(10)
+        five.times(3) == Money.dollar(15)
 
     }
 
     def "test equality"(){
         expect:
-        new Dollar(5) ==  new Dollar(5)
-        new Dollar(5) != new Dollar(6)
+        Money.dollar(5) ==  Money.dollar(5)
+        Money.dollar(5) != Money.dollar(6)
 
-        new Franc(5) == new Franc(5)
-        new Franc(5) != new Franc(6)
+        Money.franc(5) == Money.franc(5)
+        Money.franc(5) != Money.franc(6)
 
-        new Franc(5) != new Dollar(5)
+        Money.franc(5) != Money.dollar(5)
     }
 
     def "test Franc multiplication"(){
         given:
-        Franc five = new Franc(5)
+        Franc five = Money.franc(5)
 
         expect:
-        five.times(2) == new Franc(10)
-        five.times(3) == new Franc(15)
+        five.times(2) == Money.franc(10)
+        five.times(3) == Money.franc(15)
     }
 }

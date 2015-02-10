@@ -1,7 +1,7 @@
 /**
  * Created by ajonusonis on 2/8/15.
  */
-public class Money {
+public abstract class Money {
     protected int amount;
 
     @Override
@@ -10,4 +10,14 @@ public class Money {
         return amount == money.amount
                 && getClass().equals(money.getClass());
     }
+
+    static Money dollar(int amount){
+        return new Dollar(amount);
+    }
+
+    static Money franc(int amount){
+        return new Franc(amount);
+    }
+
+    abstract Money times(int multiplier);
 }
