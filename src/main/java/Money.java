@@ -3,6 +3,7 @@
  */
 public abstract class Money {
     protected int amount;
+    protected String currency;
 
     @Override
     public boolean equals(Object o) {
@@ -20,4 +21,8 @@ public abstract class Money {
     }
 
     abstract Money times(int multiplier);
+
+    String currency(){
+        return currency;
+    }
 }

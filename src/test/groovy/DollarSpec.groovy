@@ -34,4 +34,10 @@ class DollarSpec extends Specification {
         five.times(2) == Money.franc(10)
         five.times(3) == Money.franc(15)
     }
+
+    def "test currency"(){
+        expect:
+        Money.dollar(1).currency() == "USD"
+        Money.franc(1).currency() == "CHF"
+    }
 }
