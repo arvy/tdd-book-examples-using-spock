@@ -40,4 +40,9 @@ class DollarSpec extends Specification {
         Money.dollar(1).currency() == "USD"
         Money.franc(1).currency() == "CHF"
     }
+
+    def "different class equality"(){
+        expect:
+        new Money(10, "CHF") == new Franc(10, "CHF")
+    }
 }
