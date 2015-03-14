@@ -2,7 +2,7 @@ import spock.lang.Specification
 /**
  * Created by ajonusonis on 2/8/15.
  */
-class DollarSpec extends Specification {
+class MoneySpec extends Specification {
 
     def "test multiplication"(){
 
