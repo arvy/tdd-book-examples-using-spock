@@ -20,19 +20,7 @@ class DollarSpec extends Specification {
         Money.dollar(5) ==  Money.dollar(5)
         Money.dollar(5) != Money.dollar(6)
 
-        Money.franc(5) == Money.franc(5)
-        Money.franc(5) != Money.franc(6)
-
         Money.franc(5) != Money.dollar(5)
-    }
-
-    def "test Franc multiplication"(){
-        given:
-        Franc five = Money.franc(5)
-
-        expect:
-        five.times(2) == Money.franc(10)
-        five.times(3) == Money.franc(15)
     }
 
     def "test currency"(){
@@ -41,8 +29,4 @@ class DollarSpec extends Specification {
         Money.franc(1).currency() == "CHF"
     }
 
-    def "different class equality"(){
-        expect:
-        new Money(10, "CHF") == new Franc(10, "CHF")
-    }
 }
