@@ -4,7 +4,7 @@ import spock.lang.Specification
  */
 class MoneySpec extends Specification {
 
-    def "test multiplication"(){
+    def "multiplication"(){
 
         given:
         Money five = Money.dollar(5)
@@ -15,7 +15,7 @@ class MoneySpec extends Specification {
 
     }
 
-    def "test equality"(){
+    def "equality"(){
         expect:
         Money.dollar(5) ==  Money.dollar(5)
         Money.dollar(5) != Money.dollar(6)
@@ -23,24 +23,23 @@ class MoneySpec extends Specification {
         Money.franc(5) != Money.dollar(5)
     }
 
-    def "test currency"(){
+    def "currency"(){
         expect:
         Money.dollar(1).currency() == "USD"
         Money.franc(1).currency() == "CHF"
     }
 	
-	def "test simple addition"(){
+	def "reduce sum"(){
 		given:
-		Money five = Money.dollar(5)
-		Expression sum = five.plus(five)
+		Expression sum = new Sum(Money.dollar(3), Money.dollar(4))
 		Bank bank = new Bank()
-		Money reduced = bank.reduce(sum, "USD")
+		Money result = bank.reduce(sum, "USD")
 		
 		expect:
-		Money.dollar(10) == reduced
+		Money.dollar(7) == result
 	}
 	
-	def "test plus returns sum"(){
+	def "plus returns sum"(){
 		given:
 		Money five = Money.dollar(5)
 		Expression result = five.plus(five)
@@ -50,5 +49,13 @@ class MoneySpec extends Specification {
 		five == sum.augend
 		five == sum.addend
 	}
-
+	
+	def "reduce money"(){
+		given:
+		Bank bank = new Bank()
+		Money result = bank.reduce(Money.dollar(1), "USD")
+		
+		expect:
+		Money.dollar(1) == result
+	}
 }
