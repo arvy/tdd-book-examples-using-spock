@@ -38,7 +38,17 @@ class MoneySpec extends Specification {
 		
 		expect:
 		Money.dollar(10) == reduced
+	}
+	
+	def "test plus returns sum"(){
+		given:
+		Money five = Money.dollar(5)
+		Expression result = five.plus(five)
+		Sum sum = (Sum)result
 		
+		expect:
+		five == sum.augend
+		five == sum.addend
 	}
 
 }
