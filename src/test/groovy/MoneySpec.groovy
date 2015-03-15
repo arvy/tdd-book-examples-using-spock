@@ -68,4 +68,9 @@ class MoneySpec extends Specification {
 		expect:
 		Money.dollar(1) == result
 	}
+	
+	def "test identity rate"(){
+		expect:
+		1 == new Bank().rate("USD", "USD")
+	}
 }
