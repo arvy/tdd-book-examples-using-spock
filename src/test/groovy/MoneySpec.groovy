@@ -69,8 +69,20 @@ class MoneySpec extends Specification {
 		Money.dollar(1) == result
 	}
 	
-	def "test identity rate"(){
+	def "identity rate"(){
 		expect:
 		1 == new Bank().rate("USD", "USD")
+	}
+	
+	def "mixed addition"(){
+		given:
+		Money fiveBucks = Money.dollar(5)
+		Money tenFrancs = Money.franc(10)
+		Bank bank = new Bank()
+		bank.addRate("CHF", "USD", 2)
+		Money result = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
+		
+		expect:
+		Money.dollar(10) == result
 	}
 }
