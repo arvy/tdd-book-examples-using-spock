@@ -112,4 +112,13 @@ class MoneySpec extends Specification {
 		Money.dollar(20) == result
 		
 	}
+
+//	p79
+//	def "plus same currency returns money"(){
+//		given:
+//		Expression sum = Money.dollar(1).plus(Money.dollar(1))
+//		
+//		expect:
+//		sum instanceof Money
+//	}
 }
