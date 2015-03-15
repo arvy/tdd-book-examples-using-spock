@@ -58,4 +58,14 @@ class MoneySpec extends Specification {
 		expect:
 		Money.dollar(1) == result
 	}
+	
+	def "reduce money : different currency"(){
+		given:
+		Bank bank = new Bank()
+		bank.addRate("CHF", "USD", 2)
+		Money result = bank.reduce(Money.franc(2), "USD")
+		
+		expect:
+		Money.dollar(1) == result
+	}
 }
