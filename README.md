@@ -8,5 +8,5 @@ To start at the very beginning checkout tag 'ch01': `git checkout tags/ch01`
 
 ## Jump ahead
 To see the full list of tags:
-    git fetch --tags
-    git tag
+  git fetch --tags
+  git tag
